@@ -10,9 +10,9 @@ dataSources:
     name: ENSRegistry
     network: smartbch
     source:
-      address: '0x3596f09d70B454049Ce11390A3eeBfBf6a9e3945'
+      address: '0xCfb86556760d03942EBf1ba88a9870e67D77b627'
       abi: EnsRegistry
-      startBlock: 3108274
+      startBlock: 3577911
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -38,9 +38,9 @@ dataSources:
     name: ENSRegistryOld
     network: smartbch
     source:
-      address: '0xaee574f3620afDAF16880Ec0d04C763B9Ee22ceE'
+      address: '0x07D127d14Bbd2af65fd86537913acAd35D6c0682'
       abi: EnsRegistry
-      startBlock: 3108269
+      startBlock: 3577908
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -66,9 +66,9 @@ dataSources:
     name: Resolver
     network: smartbch
     source:
-      address: '0xbeDf85214e21e8Db8ac4210e67C3cE05F16C871f'
+      address: '0x1Ba19b976feFC1C9c684F2B821E494A380f45A0f'
       abi: Resolver
-      startBlock: 3108283
+      startBlock: 3577920
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -112,9 +112,9 @@ dataSources:
     name: EthBaseRegistrar
     network: smartbch
     source:
-      address: '0x614eca1103f5996f0228071a465d929e96984A88'
+      address: '0xdAb6078E81e73390a0b7a76FCc8542DF766E7c70'
       abi: BaseRegistrar
-      startBlock: 3108286
+      startBlock: 3577923
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -139,9 +139,9 @@ dataSources:
     name: EthRegistrarController
     network: smartbch
     source:
-      address: '0xcAb3B9Bb9561f23322565eE00cAdA56C460a4047'
+      address: '0x8257c4233B6b6e4Ee077b7585722166CBD8A5D6d'
       abi: EthRegistrarController
-      startBlock: 3108295
+      startBlock: 3577932
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -163,9 +163,9 @@ dataSources:
     name: BchBaseRegistrar
     network: smartbch
     source:
-      address: '0x83963552894e4eF516ba4791cF789B23DbB764D1'
+      address: '0x32650517D7D4c54935197ff5F3e575D5fb210A63'
       abi: BaseRegistrar
-      startBlock: 3108356
+      startBlock: 3577983
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -190,9 +190,9 @@ dataSources:
     name: BchRegistrarController
     network: smartbch
     source:
-      address: '0x23B80D989E6D1B28780Ca1305263e41CAC7a41C5'
+      address: '0xd70B03F4F5196bdd14A84C40C6ebc5D86c425dAe'
       abi: EthRegistrarController
-      startBlock: 3108365
+      startBlock: 3577994
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
