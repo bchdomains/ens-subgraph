@@ -1,0 +1,212 @@
+specVersion: 0.0.3
+description: >-
+  A secure & decentralized way to address resources on and off the blockchain
+  using simple, human-readable names. Access domains and transfer history.
+repository: 'https://github.com/ensdomains/ens-subgraph'
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ENSRegistry
+    network: dogechain-testnet
+    source:
+      address: '0xCfb86556760d03942EBf1ba88a9870e67D77b627'
+      abi: EnsRegistry
+      startBlock: 3577911
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/ensRegistry.ts
+      entities:
+        - Domain
+        - Account
+        - Resolver
+      abis:
+        - name: EnsRegistry
+          file: ./abis/Registry.json
+      eventHandlers:
+        - event: 'Transfer(indexed bytes32,address)'
+          handler: handleTransfer
+        - event: 'NewOwner(indexed bytes32,indexed bytes32,address)'
+          handler: handleNewOwner
+        - event: 'NewResolver(indexed bytes32,address)'
+          handler: handleNewResolver
+        - event: 'NewTTL(indexed bytes32,uint64)'
+          handler: handleNewTTL
+  - kind: ethereum/contract
+    name: ENSRegistryOld
+    network: dogechain-testnet
+    source:
+      address: '0x07D127d14Bbd2af65fd86537913acAd35D6c0682'
+      abi: EnsRegistry
+      startBlock: 3577908
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/ensRegistry.ts
+      entities:
+        - Domain
+        - Account
+        - Resolver
+      abis:
+        - name: EnsRegistry
+          file: ./abis/Registry.json
+      eventHandlers:
+        - event: 'Transfer(indexed bytes32,address)'
+          handler: handleTransferOldRegistry
+        - event: 'NewOwner(indexed bytes32,indexed bytes32,address)'
+          handler: handleNewOwnerOldRegistry
+        - event: 'NewResolver(indexed bytes32,address)'
+          handler: handleNewResolverOldRegistry
+        - event: 'NewTTL(indexed bytes32,uint64)'
+          handler: handleNewTTLOldRegistry
+  - kind: ethereum/contract
+    name: Resolver
+    network: dogechain-testnet
+    source:
+      address: '0x1Ba19b976feFC1C9c684F2B821E494A380f45A0f'
+      abi: Resolver
+      startBlock: 3577920
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/resolver.ts
+      entities:
+        - AddrChanged
+        - MulticoinAddrChanged
+        - NameChanged
+        - AbiChanged
+        - PubkeyChanged
+        - Textchanged
+        - ContenthashChanged
+        - InterfaceChanged
+        - AuthorisationChanged
+      abis:
+        - name: Resolver
+          file: ./abis/PublicResolver.json
+      eventHandlers:
+        - event: 'ABIChanged(indexed bytes32,indexed uint256)'
+          handler: handleABIChanged
+        - event: 'AddrChanged(indexed bytes32,address)'
+          handler: handleAddrChanged
+        - event: 'AddressChanged(indexed bytes32,uint256,bytes)'
+          handler: handleMulticoinAddrChanged
+        - event: >-
+            AuthorisationChanged(indexed bytes32,indexed address,indexed
+            address,bool)
+          handler: handleAuthorisationChanged
+        - event: 'ContenthashChanged(indexed bytes32,bytes)'
+          handler: handleContentHashChanged
+        - event: 'InterfaceChanged(indexed bytes32,indexed bytes4,address)'
+          handler: handleInterfaceChanged
+        - event: 'NameChanged(indexed bytes32,string)'
+          handler: handleNameChanged
+        - event: 'PubkeyChanged(indexed bytes32,bytes32,bytes32)'
+          handler: handlePubkeyChanged
+        - event: 'TextChanged(indexed bytes32,indexed string,string)'
+          handler: handleTextChanged
+  - kind: ethereum/contract
+    name: EthBaseRegistrar
+    network: dogechain-testnet
+    source:
+      address: '0xdAb6078E81e73390a0b7a76FCc8542DF766E7c70'
+      abi: BaseRegistrar
+      startBlock: 3577923
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/ethRegistrar.ts
+      entities:
+        - Registration
+        - NameRegistered
+        - NameRenewed
+        - NameTransferred
+      abis:
+        - name: BaseRegistrar
+          file: ./abis/BaseRegistrar.json
+      eventHandlers:
+        - event: 'NameRegistered(indexed uint256,indexed address,uint256)'
+          handler: handleNameRegistered
+        - event: 'NameRenewed(indexed uint256,uint256)'
+          handler: handleNameRenewed
+        - event: 'Transfer(indexed address,indexed address,indexed uint256)'
+          handler: handleNameTransferred
+  - kind: ethereum/contract
+    name: EthRegistrarController
+    network: dogechain-testnet
+    source:
+      address: '0x8257c4233B6b6e4Ee077b7585722166CBD8A5D6d'
+      abi: EthRegistrarController
+      startBlock: 3577932
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/ethRegistrar.ts
+      entities:
+        - Registration
+      abis:
+        - name: EthRegistrarController
+          file: ./abis/EthRegistrarController.json
+      eventHandlers:
+        - event: >-
+            NameRegistered(string,indexed bytes32,indexed
+            address,uint256,uint256)
+          handler: handleNameRegisteredByController
+        - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
+          handler: handleNameRenewedByController
+  - kind: ethereum/contract
+    name: DogeBaseRegistrar
+    network: dogechain-testnet
+    source:
+      address: '0x32650517D7D4c54935197ff5F3e575D5fb210A63'
+      abi: BaseRegistrar
+      startBlock: 3577983
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/dogeRegistrar.ts
+      entities:
+        - Registration
+        - NameRegistered
+        - NameRenewed
+        - NameTransferred
+      abis:
+        - name: BaseRegistrar
+          file: ./abis/BaseRegistrar.json
+      eventHandlers:
+        - event: 'NameRegistered(indexed uint256,indexed address,uint256)'
+          handler: handleNameRegistered
+        - event: 'NameRenewed(indexed uint256,uint256)'
+          handler: handleNameRenewed
+        - event: 'Transfer(indexed address,indexed address,indexed uint256)'
+          handler: handleNameTransferred
+  - kind: ethereum/contract
+    name: DogeRegistrarController
+    network: dogechain-testnet
+    source:
+      address: '0xd70B03F4F5196bdd14A84C40C6ebc5D86c425dAe'
+      abi: EthRegistrarController
+      startBlock: 3577994
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/dogeRegistrar.ts
+      entities:
+        - Registration
+      abis:
+        - name: EthRegistrarController
+          file: ./abis/EthRegistrarController.json
+      eventHandlers:
+        - event: >-
+            NameRegistered(string,indexed bytes32,indexed
+            address,uint256,uint256)
+          handler: handleNameRegisteredByController
+        - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
+          handler: handleNameRenewedByController
