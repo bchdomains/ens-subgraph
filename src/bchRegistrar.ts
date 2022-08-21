@@ -38,7 +38,7 @@ export function handleNameRegistered(event: NameRegisteredEvent): void {
   registration.expiryDate = event.params.expires
   registration.registrant = account.id
 
-  let labelName = ens.nameByHash(label.toHexString())
+  let labelName = null // ens.nameByHash(label.toHexString())
   if (labelName != null) {
     registration.labelName = labelName
   }
