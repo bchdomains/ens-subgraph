@@ -10,9 +10,9 @@ dataSources:
     name: ENSRegistry
     network: dogechain-testnet
     source:
-      address: '0xCfb86556760d03942EBf1ba88a9870e67D77b627'
+      address: '0x08850859CE6B62A39918c8B806AfbE3442fE7b0b'
       abi: EnsRegistry
-      startBlock: 3577911
+      startBlock: 4825199
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -38,9 +38,9 @@ dataSources:
     name: ENSRegistryOld
     network: dogechain-testnet
     source:
-      address: '0x07D127d14Bbd2af65fd86537913acAd35D6c0682'
+      address: '0xb9A3450e4a044a34e9Ed2F0Dfc5f4d2157eB37Fc'
       abi: EnsRegistry
-      startBlock: 3577908
+      startBlock: 4825195
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -66,9 +66,9 @@ dataSources:
     name: Resolver
     network: dogechain-testnet
     source:
-      address: '0x1Ba19b976feFC1C9c684F2B821E494A380f45A0f'
+      address: '0x229f1255109B3817C419297C6fD8541Fea91735C'
       abi: Resolver
-      startBlock: 3577920
+      startBlock: 4825211
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -112,9 +112,9 @@ dataSources:
     name: EthBaseRegistrar
     network: dogechain-testnet
     source:
-      address: '0xdAb6078E81e73390a0b7a76FCc8542DF766E7c70'
+      address: '0xdb9b8f0c2D972c131E881DE27aAd06c7AA3bA768'
       abi: BaseRegistrar
-      startBlock: 3577923
+      startBlock: 4825215
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -139,9 +139,9 @@ dataSources:
     name: EthRegistrarController
     network: dogechain-testnet
     source:
-      address: '0x8257c4233B6b6e4Ee077b7585722166CBD8A5D6d'
+      address: '0x2DB18128C58ffB62b1bbA8F4BC016034d98D3cB9'
       abi: EthRegistrarController
-      startBlock: 3577932
+      startBlock: 4825235
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -163,9 +163,9 @@ dataSources:
     name: DogeBaseRegistrar
     network: dogechain-testnet
     source:
-      address: '0x32650517D7D4c54935197ff5F3e575D5fb210A63'
+      address: '0x07D127d14Bbd2af65fd86537913acAd35D6c0682'
       abi: BaseRegistrar
-      startBlock: 3577983
+      startBlock: 4825370
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -190,9 +190,9 @@ dataSources:
     name: DogeRegistrarController
     network: dogechain-testnet
     source:
-      address: '0xd70B03F4F5196bdd14A84C40C6ebc5D86c425dAe'
+      address: '0x19D16979a01a7474840748EcAEED925725CA1624'
       abi: EthRegistrarController
-      startBlock: 3577994
+      startBlock: 4825390
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
