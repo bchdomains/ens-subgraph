@@ -1,8 +1,11 @@
 // Import types and APIs from graph-ts
 import {
+  BigInt,
   ByteArray,
+  Bytes,
   crypto,
-  ens
+  ens,
+  log
 } from '@graphprotocol/graph-ts'
 
 import {
@@ -20,7 +23,7 @@ import {
 import {
   NameRegistered as ControllerNameRegisteredEvent,
   NameRenewed as ControllerNameRenewedEvent
-} from './types/EthRegistrarController/EthRegistrarController'
+} from './types/BchRegistrarController/EthRegistrarController'
 
 // Import entity types generated from the GraphQL schema
 import { Account, Domain, Registration, NameRegistered, NameRenewed, NameTransferred } from './types/schema'
@@ -38,10 +41,10 @@ export function handleNameRegistered(event: NameRegisteredEvent): void {
   registration.expiryDate = event.params.expires
   registration.registrant = account.id
 
-  // let labelName = ens.nameByHash(label.toHexString())
-  // if (labelName != null) {
-  //   registration.labelName = labelName
-  // }
+  let labelName = ens.nameByHash(label.toHexString())
+  if (labelName != null) {
+    registration.labelName = labelName
+  }
   registration.save()
 
   let registrationEvent = new NameRegistered(createEventID(event))
@@ -54,32 +57,39 @@ export function handleNameRegistered(event: NameRegisteredEvent): void {
 }
 
 export function handleNameRegisteredByController(event: ControllerNameRegisteredEvent): void {
-  let domain = Domain.load(crypto.keccak256(concat(rootNode, event.params.label)).toHex())!
-  if(domain.labelName !== event.params.name) {
-    domain.labelName = event.params.name
-    domain.name = event.params.name + '.bch'
-    domain.save()
-  }
-
-  let registration = Registration.load(event.params.label.toHex());
-  if(registration == null) return
-  registration.labelName = event.params.name
-  registration.cost = event.params.cost
-  registration.save()
+  setNamePreimage(event.params.name, event.params.label, event.params.cost);
 }
 
 export function handleNameRenewedByController(event: ControllerNameRenewedEvent): void {
-  let domain = Domain.load(crypto.keccak256(concat(rootNode, event.params.label)).toHex())!
-  if(domain.labelName !== event.params.name) {
-    domain.labelName = event.params.name
-    domain.name = event.params.name + '.bch'
+  setNamePreimage(event.params.name, event.params.label, event.params.cost);
+}
+
+function setNamePreimage(name: string, label: Bytes, cost: BigInt): void {
+  const labelHash = crypto.keccak256(ByteArray.fromUTF8(name));
+  if(!labelHash.equals(label)) {
+    log.warning(
+      "Expected '{}' to hash to {}, but got {} instead. Skipping.",
+      [name, labelHash.toHex(), label.toHex()]
+    );
+    return;
+  }
+
+  if(name.indexOf(".") !== -1) {
+    log.warning("Invalid label '{}'. Skipping.", [name]);
+    return;
+  }
+
+  let domain = Domain.load(crypto.keccak256(concat(rootNode, label)).toHex())!
+  if(domain.labelName !== name) {
+    domain.labelName = name
+    domain.name = name + '.bch'
     domain.save()
   }
 
-  let registration = Registration.load(event.params.label.toHex());
+  let registration = Registration.load(label.toHex());
   if(registration == null) return
-  registration.labelName = event.params.name
-  registration.cost = event.params.cost
+  registration.labelName = name
+  registration.cost = cost
   registration.save()
 }
 
