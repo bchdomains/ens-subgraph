@@ -1,12 +1,18 @@
 // Import types and APIs from graph-ts
 import {
+  Address,
   BigInt,
   ByteArray,
+  Bytes,
   ethereum
 } from '@graphprotocol/graph-ts'
 
 export function createEventID(event:  ethereum.Event): string {
-  return event.block.number.toString().concat('-').concat(event.logIndex.toString())
+  return event.block.number.toString().concat('-').concat(event.transaction.index.toString()).concat('-').concat(event.logIndex.toString())
+}
+
+export function createResolverID(node: Bytes, resolver: Address): string {
+  return resolver.toHexString().concat('-').concat(node.toHexString())
 }
 
 export const ROOT_NODE = '0x0000000000000000000000000000000000000000000000000000000000000000'

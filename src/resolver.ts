@@ -15,8 +15,7 @@ import {
   AbiChanged, Account, AddrChanged, AuthorisationChanged, ContenthashChanged, Domain, InterfaceChanged, MulticoinAddrChanged,
   NameChanged, PubkeyChanged, Resolver, TextChanged
 } from './types/schema';
-
-
+import { createEventID, createResolverID } from "./utils";
 
 export function handleAddrChanged(event: AddrChangedEvent): void {
   let account = new Account(event.params.a.toHexString())
@@ -167,12 +166,4 @@ function getOrCreateResolver(node: Bytes, address: Address): Resolver {
     resolver.address = address
   }
   return resolver as Resolver
-}
-
-function createEventID(event: ethereum.Event): string {
-  return event.block.number.toString().concat('-').concat(event.logIndex.toString())
-}
-
-function createResolverID(node: Bytes, resolver: Address): string {
-  return resolver.toHexString().concat('-').concat(node.toHexString())
 }
