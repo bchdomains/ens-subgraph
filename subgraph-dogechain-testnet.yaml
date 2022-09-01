@@ -236,7 +236,7 @@ dataSources:
           handler: handleNameRenewedByController
   - kind: ethereum/contract
     name: DcBaseRegistrar
-    network: dogechain
+    network: dogechain-testnet
     source:
       address: '0x1070AAf6115FF3F8d6307F39C7a7A3FaC622879C'
       abi: BaseRegistrar
