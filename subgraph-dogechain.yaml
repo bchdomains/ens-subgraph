@@ -245,7 +245,7 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/dogeRegistrar.ts
+      file: ./src/dcRegistrar.ts
       entities:
         - Registration
         - NameRegistered
@@ -272,7 +272,7 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/dogeRegistrar.ts
+      file: ./src/dcRegistrar.ts
       entities:
         - Registration
       abis:
@@ -296,7 +296,7 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/dogeRegistrar.ts
+      file: ./src/dcRegistrar.ts
       entities:
         - Registration
       abis:
