@@ -211,12 +211,12 @@ dataSources:
         - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
           handler: handleNameRenewedByController
   - kind: ethereum/contract
-    name: DogePromoRegistrarController
-    network: dogechain
+    name: DogeNFTRegistrarController
+    network: dogechain-testnet
     source:
-      address: '0x412c48685d7E16a9e3450b3Ca568690Da0585838'
+      address: '0xCa215b6ce74dF894ebF07daA82a8035DABcDb2A8'
       abi: EthRegistrarController
-      startBlock: 1434534
+      startBlock: 2322581
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -235,58 +235,7 @@ dataSources:
         - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
           handler: handleNameRenewedByController
   - kind: ethereum/contract
-    name: DcBaseRegistrar
-    network: dogechain
-    source:
-      address: '0x09635F643e140090A9A8Dcd712eD6285858ceBef'
-      abi: BaseRegistrar
-      startBlock: 28
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: ./src/dcRegistrar.ts
-      entities:
-        - Registration
-        - NameRegistered
-        - NameRenewed
-        - NameTransferred
-      abis:
-        - name: BaseRegistrar
-          file: ./abis/BaseRegistrar.json
-      eventHandlers:
-        - event: 'NameRegistered(indexed uint256,indexed address,uint256)'
-          handler: handleNameRegistered
-        - event: 'NameRenewed(indexed uint256,uint256)'
-          handler: handleNameRenewed
-        - event: 'Transfer(indexed address,indexed address,indexed uint256)'
-          handler: handleNameTransferred
-  - kind: ethereum/contract
-    name: DcRegistrarController
-    network: dogechain
-    source:
-      address: '0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E'
-      abi: EthRegistrarController
-      startBlock: 31
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: ./src/dcRegistrar.ts
-      entities:
-        - Registration
-      abis:
-        - name: EthRegistrarController
-          file: ./abis/EthRegistrarController.json
-      eventHandlers:
-        - event: >-
-            NameRegistered(string,indexed bytes32,indexed
-            address,uint256,uint256)
-          handler: handleNameRegisteredByController
-        - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
-          handler: handleNameRenewedByController
-  - kind: ethereum/contract
-    name: DcPromoRegistrarController
+    name: DogePromoRegistrarController
     network: dogechain
     source:
       address: '0x412c48685d7E16a9e3450b3Ca568690Da0585838'
@@ -296,7 +245,7 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/dcRegistrar.ts
+      file: ./src/dogeRegistrar.ts
       entities:
         - Registration
       abis:

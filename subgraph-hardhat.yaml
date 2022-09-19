@@ -10,9 +10,9 @@ dataSources:
     name: ENSRegistry
     network: amber
     source:
-      address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
+      address: '0x68B1D87F95878fE05B998F19b66F4baba5De1aed'
       abi: EnsRegistry
-      startBlock: 2
+      startBlock: 19
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -66,9 +66,9 @@ dataSources:
     name: Resolver
     network: amber
     source:
-      address: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'
+      address: '0x59b670e9fA9D0A427751Af201D676719a970857b'
       abi: Resolver
-      startBlock: 5
+      startBlock: 22
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -112,9 +112,9 @@ dataSources:
     name: EthBaseRegistrar
     network: amber
     source:
-      address: '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707'
+      address: '0x4ed7c70F96B99c776995fB64377f0d4aB3B0e1C1'
       abi: BaseRegistrar
-      startBlock: 6
+      startBlock: 23
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -139,9 +139,9 @@ dataSources:
     name: EthRegistrarController
     network: amber
     source:
-      address: '0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6'
+      address: '0x4A679253410272dd5232B3Ff7cF5dbB88f295319'
       abi: EthRegistrarController
-      startBlock: 9
+      startBlock: 26
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -163,9 +163,9 @@ dataSources:
     name: BchBaseRegistrar
     network: amber
     source:
-      address: '0x09635F643e140090A9A8Dcd712eD6285858ceBef'
+      address: '0x3347B4d90ebe72BeFb30444C9966B2B990aE9FcB'
       abi: BaseRegistrar
-      startBlock: 28
+      startBlock: 117
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -190,9 +190,9 @@ dataSources:
     name: BchRegistrarController
     network: amber
     source:
-      address: '0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E'
+      address: '0xffa7CA1AEEEbBc30C874d32C7e22F052BbEa0429'
       abi: EthRegistrarController
-      startBlock: 31
+      startBlock: 120
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -214,9 +214,9 @@ dataSources:
     name: DogeBaseRegistrar
     network: dogechain
     source:
-      address: '0xc5a5C42992dECbae36851359345FE25997F5C42d'
+      address: '0x9d4454B023096f34B160D6B654540c56A1F81688'
       abi: BaseRegistrar
-      startBlock: 29
+      startBlock: 46
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -241,9 +241,9 @@ dataSources:
     name: DogeRegistrarController
     network: dogechain
     source:
-      address: '0xc3e53F4d16Ae77Db1c982e75a937B9f60FE63690'
+      address: '0x809d550fca64d94Bd9F66E60752A544199cfAC3D'
       abi: EthRegistrarController
-      startBlock: 32
+      startBlock: 49
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -289,9 +289,9 @@ dataSources:
     name: DcBaseRegistrar
     network: dogechain
     source:
-      address: '0x36C02dA8a0983159322a80FFE9F24b1acfF8B570'
+      address: '0xdbC43Ba45381e02825b14322cDdd15eC4B3164E6'
       abi: BaseRegistrar
-      startBlock: 48
+      startBlock: 68
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -316,9 +316,9 @@ dataSources:
     name: DcRegistrarController
     network: dogechain
     source:
-      address: '0x1291Be112d480055DaFd8a610b7d1e203891C274'
+      address: '0x21dF544947ba3E8b3c32561399E88B52Dc8b2823'
       abi: EthRegistrarController
-      startBlock: 51
+      startBlock: 71
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -340,9 +340,9 @@ dataSources:
     name: DcPromoRegistrarController
     network: dogechain
     source:
-      address: '0xcbEAF3BDe82155F56486Fb5a1072cb8baAf547cc'
+      address: '0x172076E0166D1F9Cc711C77Adf8488051744980C'
       abi: EthRegistrarController
-      startBlock: 61
+      startBlock: 81
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
