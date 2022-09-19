@@ -212,7 +212,7 @@ dataSources:
           handler: handleNameRenewedByController
   - kind: ethereum/contract
     name: DogeNFTRegistrarController
-    network: dogechain-testnet
+    network: dogechain
     source:
       address: '0xCa215b6ce74dF894ebF07daA82a8035DABcDb2A8'
       abi: EthRegistrarController
