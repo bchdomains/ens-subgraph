@@ -119,7 +119,7 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
-      file: ./src/dogeRegistrar.ts
+      file: ./src/ethwRegistrar.ts
       entities:
         - Registration
         - NameRegistered
