@@ -10,9 +10,9 @@ dataSources:
     name: ENSRegistry
     network: ethpow
     source:
-      address: '0xefc1c4E33c7831256C37F986B071f2BA81F8D0d3'
+      address: '0xd3d3cF6937015593b3424F81e5F44CefB8A90588'
       abi: EnsRegistry
-      startBlock: 15692039
+      startBlock: 15705017
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -38,9 +38,9 @@ dataSources:
     name: ENSRegistryOld
     network: ethpow
     source:
-      address: '0x278db0cd2D83edDb2237209AF5A4fE21A79e0800'
+      address: '0xDDaeae212B74f7D8f957E64e19D877893908EB76'
       abi: EnsRegistry
-      startBlock: 15692038
+      startBlock: 15705012
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -66,9 +66,9 @@ dataSources:
     name: Resolver
     network: ethpow
     source:
-      address: '0x0aF878360B48b5f51F4e919f3cC1EC08B78627ad'
+      address: '0xEf5FdBC5A72f6dD8eCf5a8e1C9d0f8Ba415CC8D3'
       abi: Resolver
-      startBlock: 15692050
+      startBlock: 15705028
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -112,9 +112,9 @@ dataSources:
     name: EthwBaseRegistrar
     network: ethpow
     source:
-      address: '0xa5F44acfb32f20feaF04f4B2e661188F3eA0Bc74'
+      address: '0x0A0BaCAd455E764D834adf4916B5432e2054686D'
       abi: BaseRegistrar
-      startBlock: 15692097
+      startBlock: 15705085
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -139,9 +139,9 @@ dataSources:
     name: EthwNFTRegistrarController
     network: ethpow
     source:
-      address: '0x97B2BDbE8E8295dC99ECf4DaE0a45FCA0270CBAa'
+      address: '0x9042bF39E658336d29b776d4FFDFBfF0A4EDa87c'
       abi: EthRegistrarController
-      startBlock: 15692109
+      startBlock: 15705093
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -163,9 +163,9 @@ dataSources:
     name: EthwPromoRegistrarController
     network: ethpow
     source:
-      address: '0x2fE973833d442A2372435Abf416CcA0A537dE807'
+      address: '0x1FCE6a9Fef5f85149048D818392C4Ac11804c4A3'
       abi: EthRegistrarController
-      startBlock: 15692136
+      startBlock: 15705113
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
