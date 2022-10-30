@@ -82,7 +82,7 @@ function setNamePreimage(name: string, label: Bytes, cost: BigInt): void {
   let domain = Domain.load(crypto.keccak256(concat(rootNode, label)).toHex())!
   if(domain.labelName !== name) {
     domain.labelName = name
-    domain.name = name + '.ethw'
+    domain.name = name + '.uniw'
     domain.save()
   }
 
