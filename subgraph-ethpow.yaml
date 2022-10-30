@@ -183,3 +183,78 @@ dataSources:
           handler: handleNameRegisteredByController
         - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
           handler: handleNameRenewedByController
+  - kind: ethereum/contract
+    name: UniwBaseRegistrar
+    network: ethpow
+    source:
+      address: '0x24Bd03494EA9D0bE43c2bEfFf1C94960dc321003'
+      abi: BaseRegistrar
+      startBlock: 15832544
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/ethwRegistrar.ts
+      entities:
+        - Registration
+        - NameRegistered
+        - NameRenewed
+        - NameTransferred
+      abis:
+        - name: BaseRegistrar
+          file: ./abis/BaseRegistrar.json
+      eventHandlers:
+        - event: 'NameRegistered(indexed uint256,indexed address,uint256)'
+          handler: handleNameRegistered
+        - event: 'NameRenewed(indexed uint256,uint256)'
+          handler: handleNameRenewed
+        - event: 'Transfer(indexed address,indexed address,indexed uint256)'
+          handler: handleNameTransferred
+  - kind: ethereum/contract
+    name: UniwNFTRegistrarController
+    network: ethpow
+    source:
+      address: '0x67F0DD63065675830cba1f3CDb74390f4d5251E1'
+      abi: EthRegistrarController
+      startBlock: 15832581
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/ethwRegistrar.ts
+      entities:
+        - Registration
+      abis:
+        - name: EthRegistrarController
+          file: ./abis/EthRegistrarController.json
+      eventHandlers:
+        - event: >-
+            NameRegistered(string,indexed bytes32,indexed
+            address,uint256,uint256)
+          handler: handleNameRegisteredByController
+        - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
+          handler: handleNameRenewedByController
+  - kind: ethereum/contract
+    name: UniwPromoRegistrarController
+    network: ethpow
+    source:
+      address: '0x8be775C329e16E35DD954eDB33C5d2cAF542Ac21'
+      abi: EthRegistrarController
+      startBlock: 15832629
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/ethwRegistrar.ts
+      entities:
+        - Registration
+      abis:
+        - name: EthRegistrarController
+          file: ./abis/EthRegistrarController.json
+      eventHandlers:
+        - event: >-
+            NameRegistered(string,indexed bytes32,indexed
+            address,uint256,uint256)
+          handler: handleNameRegisteredByController
+        - event: 'NameRenewed(string,indexed bytes32,uint256,uint256)'
+          handler: handleNameRenewedByController
